@@ -49,7 +49,6 @@ services:
     restart: always
     network_mode: host
 
-# For SRT, VOS is not compatible with TS-DUCK - this container uses the HAIVISION SRT toolset to tunr around the TS multicasts
   srt_acdc:
     image: miyukki/srt:latest
     volumes:
