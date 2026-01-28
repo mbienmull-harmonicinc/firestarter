@@ -49,26 +49,30 @@ services:
     restart: always
     network_mode: host
 
+# For SRT, VOS is not compatible with TS-DUCK - this container uses the HAIVISION SRT toolset to tunr around the TS multicasts
   srt_acdc:
-    image: cerberusbroadcast/tsduck
+    image: miyukki/srt:latest
     volumes:
       - /stream/data:/data
-    command: '-I file /data/zdf-hd_acdc.ts --infinite -P regulate --pcr-synchronous -P continuity --fix -P bitrate_monitor -p 60  -O srt --listener 4600 --transtype live --messageapi'
+    entrypoint: '/opt/srt/srt-live-transmit'
+    command: 'udp://232.107.210.11:5000' 'srt://:4600'
     restart: always
     network_mode: host
-
+  
   srt_maiden:
-    image: cerberusbroadcast/tsduck
+    image: miyukki/srt:latest
     volumes:
       - /stream/data:/data
-    command: '-I file /data/zdf-hd_maiden.ts --infinite -P regulate --pcr-synchronous -P continuity --fix -P bitrate_monitor -p 60  -O srt --listener 4666 --transtype live --messageapi'
+    entrypoint: '/opt/srt/srt-live-transmit'
+    command: 'udp://232.107.210.12:5000' 'srt://:4666'
     restart: always
     network_mode: host
 
   srt_parsons:
-    image: cerberusbroadcast/tsduck
+    image: miyukki/srt:latest
     volumes:
       - /stream/data:/data
-    command: '-I file /data/zdf-hd_parsons.ts --infinite -P regulate --pcr-synchronous -P continuity --fix -P bitrate_monitor -p 60  -O srt --listener 4700 --transtype live --messageapi'
+    entrypoint: '/opt/srt/srt-live-transmit'
+    command: 'udp://232.107.210.13:5000' 'srt://:4700'
     restart: always
     network_mode: host
