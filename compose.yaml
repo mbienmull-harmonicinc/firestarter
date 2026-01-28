@@ -48,3 +48,27 @@ services:
     command: '-I file /data/zdf-hd_parsons.ts --infinite -P regulate --pcr-synchronous -P continuity --fix -P bitrate_monitor -p 60 -O ip 232.107.210.13:5000'
     restart: always
     network_mode: host
+
+  srt_acdc:
+    image: cerberusbroadcast/tsduck
+    volumes:
+      - /stream/data:/data
+    command: '-I file /data/zdf-hd_acdc.ts --infinite -P regulate --pcr-synchronous -P continuity --fix -P bitrate_monitor -p 60  -O srt --listener 4600 --transtype live --messageapi'
+    restart: always
+    network_mode: host
+
+  srt_maiden:
+    image: cerberusbroadcast/tsduck
+    volumes:
+      - /stream/data:/data
+    command: '-I file /data/zdf-hd_maiden.ts --infinite -P regulate --pcr-synchronous -P continuity --fix -P bitrate_monitor -p 60  -O srt --listener 4666 --transtype live --messageapi'
+    restart: always
+    network_mode: host
+
+  srt_parsons:
+    image: cerberusbroadcast/tsduck
+    volumes:
+      - /stream/data:/data
+    command: '-I file /data/zdf-hd_parsons.ts --infinite -P regulate --pcr-synchronous -P continuity --fix -P bitrate_monitor -p 60  -O srt --listener 4700 --transtype live --messageapi'
+    restart: always
+    network_mode: host
