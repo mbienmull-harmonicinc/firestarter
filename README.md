@@ -1,2 +1,2 @@
 # firestarter
-Docker image to autoconfig BONFIRE lab
+Docker-Compose to setup BONFIRE lab streaming services
