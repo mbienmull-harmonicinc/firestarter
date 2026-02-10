@@ -5,7 +5,7 @@ services:
     image: cerberusbroadcast/tsduck
     volumes:
       - /stream/data:/data
-    command: '-I file /data/vftv_hdtv10006.ts --infinite -P regulate --pcr-synchronous -P continuity --fix -P bitrate_monitor -p 60 -O ip 232.107.210.106:5000'
+    command: '-I file /data/vftv_hdtv10006.ts --infinite -P regulate --pcr-synchronous -P continuity --fix -P bitrate_monitor -p 60 -O ip 239.107.210.106:5000'
     restart: always
     network_mode: host
 
@@ -13,7 +13,7 @@ services:
     image: cerberusbroadcast/tsduck
     volumes:
       - /stream/data:/data
-    command: '-I file /data/vftv_hdtv10009.ts --infinite -P regulate --pcr-synchronous -P continuity --fix -P bitrate_monitor -p 60 -O ip 232.107.210.109:5000'
+    command: '-I file /data/vftv_hdtv10009.ts --infinite -P regulate --pcr-synchronous -P continuity --fix -P bitrate_monitor -p 60 -O ip 239.107.210.109:5000'
     restart: always
     network_mode: host
 
@@ -21,7 +21,7 @@ services:
     image: cerberusbroadcast/tsduck
     volumes:
       - /stream/data:/data
-    command: '-I file /data/vftv_sdtv10002.ts --infinite -P regulate --pcr-synchronous -P continuity --fix -P bitrate_monitor -p 60 -O ip 232.107.210.102:5000'
+    command: '-I file /data/vftv_sdtv10002.ts --infinite -P regulate --pcr-synchronous -P continuity --fix -P bitrate_monitor -p 60 -O ip 239.107.210.102:5000'
     restart: always
     network_mode: host
 
@@ -29,7 +29,7 @@ services:
     image: cerberusbroadcast/tsduck
     volumes:
       - /stream/data:/data
-    command: '-I file /data/zdf-hd_acdc.ts --infinite -P regulate --pcr-synchronous -P continuity --fix -P bitrate_monitor -p 60 -O ip 232.107.210.11:5000'
+    command: '-I file /data/zdf-hd_acdc.ts --infinite -P regulate --pcr-synchronous -P continuity --fix -P bitrate_monitor -p 60 -O ip 239.107.210.11:5000'
     restart: always
     network_mode: host
 
@@ -37,7 +37,7 @@ services:
     image: cerberusbroadcast/tsduck
     volumes:
       - /stream/data:/data
-    command: '-I file /data/zdf-hd_maiden.ts --infinite -P regulate --pcr-synchronous -P continuity --fix -P bitrate_monitor -p 60 -O ip 232.107.210.12:5000'
+    command: '-I file /data/zdf-hd_maiden.ts --infinite -P regulate --pcr-synchronous -P continuity --fix -P bitrate_monitor -p 60 -O ip 239.107.210.12:5000'
     restart: always
     network_mode: host
 
@@ -45,7 +45,7 @@ services:
     image: cerberusbroadcast/tsduck
     volumes:
       - /stream/data:/data
-    command: '-I file /data/zdf-hd_parsons.ts --infinite -P regulate --pcr-synchronous -P continuity --fix -P bitrate_monitor -p 60 -O ip 232.107.210.13:5000'
+    command: '-I file /data/zdf-hd_parsons.ts --infinite -P regulate --pcr-synchronous -P continuity --fix -P bitrate_monitor -p 60 -O ip 239.107.210.13:5000'
     restart: always
     network_mode: host
 
@@ -56,7 +56,7 @@ services:
     volumes:
       - /stream/data:/data
     entrypoint: '/opt/srt/srt-live-transmit'
-    command: 'udp://232.107.210.11:5000 srt://:4600'
+    command: 'udp://239.107.210.11:5000 srt://:4600'
     restart: always
     network_mode: host
   
@@ -65,7 +65,7 @@ services:
     volumes:
       - /stream/data:/data
     entrypoint: '/opt/srt/srt-live-transmit'
-    command: 'udp://232.107.210.12:5000 srt://:4666'
+    command: 'udp://239.107.210.12:5000 srt://:4666'
     restart: always
     network_mode: host
 
@@ -74,6 +74,6 @@ services:
     volumes:
       - /stream/data:/data
     entrypoint: '/opt/srt/srt-live-transmit'
-    command: 'udp://232.107.210.13:5000 srt://:4700'
+    command: 'udp://239.107.210.13:5000 srt://:4700'
     restart: always
     network_mode: host
