@@ -49,6 +49,14 @@ services:
     restart: always
     network_mode: host
 
+  ts_radio:
+    image: cerberusbroadcast/tsduck
+    volumes:
+      - /stream/data:/data
+    command: '-I file /data/radiotesting.ts --infinite -P regulate --pcr-synchronous -P continuity --fix -P bitrate_monitor -p 60 -O ip 239.107.210.14:5000'
+    restart: always
+    network_mode: host
+
 # Using the HAIVISION SRT toolchain for better compatibility
 
   srt_acdc:
